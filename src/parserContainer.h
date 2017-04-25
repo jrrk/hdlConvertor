@@ -40,10 +40,11 @@ class ParserContainer {
 
 		// create a parser that feeds off the tokens buffer
 		antlrParser = new antlrParserT(tokens);
-
+		/*
 		antlrParser->removeErrorListeners();
 		syntaxErrLogger = new SyntaxErrorLogger();
 		antlrParser->addErrorListener(syntaxErrLogger);
+		*/
 	}
 public:
 	Context * context;

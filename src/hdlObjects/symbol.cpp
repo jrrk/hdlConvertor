@@ -60,9 +60,9 @@ PyObject * Symbol::toJson() const {
 #endif
 
 void Symbol::dump(int indent) const {
-	std::cout << "{\n";
+	std::cout << "(\n";
 	indent += INDENT_INCR;
-	dumpVal("type", indent, SymbolType_toString(type)) << ",\n";
+	dumpVal("stype", indent, SymbolType_toString(type)) << ",\n";
 	const char * _v;
 
 	switch (type) {
@@ -84,9 +84,11 @@ void Symbol::dump(int indent) const {
 		dumpVal("value", indent, _v) << "\n";
 		break;
 	case symb_ALL:
+	        std::cout << " Jvoid";
+	        break;
 	case symb_OPEN:
 	default:
 		break;
 	}
-	mkIndent(indent - INDENT_INCR) << "}";
+	mkIndent(indent - INDENT_INCR) << ")";
 }

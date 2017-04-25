@@ -35,7 +35,7 @@ inline std::ostream& mkIndent(int indent) {
 }
 
 inline std::ostream & dumpKey(const char * key, int indent) {
-	return mkIndent(indent) << "\"" << key << "\":";
+	return mkIndent(indent) << "J" << key << " ";
 }
 
 template<typename T>
@@ -48,12 +48,15 @@ std::ostream & dumpArrP(
 		const char * name,
 		int indent,
 		std::vector<T> const & objects) {
+        int first = 1;
 	dumpKey(name, indent) << "[";
 	indent += INDENT_INCR;
 	for (auto it : objects) {
-		mkIndent(indent);
-		it->dump(indent);
-		std::cout << ",\n";
+	  if (!first)
+	     std::cout << ";\n";
+	  mkIndent(indent);
+	  it->dump(indent);
+	  first = 0;
 	}
 	mkIndent(indent - INDENT_INCR);
 	std::cout << "]";
@@ -62,7 +65,7 @@ std::ostream & dumpArrP(
 
 template<typename T>
 std::ostream & dumpItemP(const char * name, int indent, T const & object) {
-	mkIndent(indent) << "\"" << name << "\":";
+	mkIndent(indent) << "J" << name;
 	object->dump(indent);
 	return std::cout;
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#define USE_PYTHON
+//#define USE_PYTHON
 
 #ifdef USE_PYTHON
 #include <Python.h>

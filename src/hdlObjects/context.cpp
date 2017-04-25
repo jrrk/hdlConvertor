@@ -27,16 +27,16 @@ PyObject * Context::toJson() const {
 #endif
 
 void Context::dump(int indent) const {
-	mkIndent(indent) << "{\n";
+	mkIndent(indent) << "open Json\n\nlet json = Context(\n";
 	indent += INDENT_INCR;
 	dumpArrP("imports", indent, imports) << ",\n";
 	dumpArrP("entities", indent, entities) << ",\n";
 	dumpArrP("architectures", indent, architectures) << ",\n";
 	dumpArrP("packages", indent, packages) << ",\n";
 	dumpArrP("packageHeaders", indent, packageHeaders) << ",\n";
-	dumpArrP("variables", indent, variables) << ",\n";
+	dumpArrP("variables", indent, variables) << "\n";
 	indent -= INDENT_INCR;
-	mkIndent(indent) << "}";
+	mkIndent(indent) << ")";
 }
 
 Context::~Context() {

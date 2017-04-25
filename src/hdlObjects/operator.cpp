@@ -72,7 +72,7 @@ PyObject * Operator::toJson() const {
 #endif
 
 void Operator::dump(int indent) const {
-	std::cout << "{\n";
+	std::cout << "(\n";
 	indent += INDENT_INCR;
 	dumpItemP("op0", indent, op0) << ",\n";
 	dumpVal("operator", indent, OperatorType_toString(op)) << ",\n";
@@ -91,5 +91,5 @@ void Operator::dump(int indent) const {
 	default:
 		throw "Invalid arity of operator";
 	}
-	mkIndent(indent - INDENT_INCR) << "}";
+	mkIndent(indent - INDENT_INCR) << ")";
 }

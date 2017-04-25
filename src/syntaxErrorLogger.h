@@ -3,7 +3,7 @@
 
 using namespace antlr4;
 
-class SyntaxErrorLogger: public ANTLRErrorListener {
+class SyntaxErrorLogger /* : public ANTLRErrorListener */ {
 public:
 	void syntaxError(IRecognizer *recognizer, Token *offendingSymbol,
 			size_t line, size_t charPositionInLine, const std::string &msg,

@@ -81,16 +81,17 @@ int main(int argc, char *argv[]) {
 	//const char * f = "../../samples/iLvl/vhdl/minimals/packageBody.vhd";
 	// const char * f = "../hwtLib/hwtLib/samples/vhdlCodesign/vhdl/minimals/functionBody.vhd";
 	//const char * f = "../../samples/verilogCodesign/verilog/interfaceArrayAxi4.v";
-	//const char * f = "tests/mux.vhd";
+	//	const char * f = "tests/mux.vhd";
 	//const char * f = "tests/uart.v";
-	const char * f = "tests/mem_base_object.sv";
+	//const char * f = "tests/mem_base_object.sv";
 
 #ifdef USE_PYTHON
 	Py_SetProgramName((wchar_t*) "test"); /* optional but recommended */
 	Py_Initialize();
 #endif
 
-	Context * ctx = c->parse(f, SYSTEM_VERILOG, false, true);
+	//	Context * ctx = c->parse(f, SYSTEM_VERILOG, false, true);
+	Context * ctx = c->parse(argv[1], VHDL, false, true);
 	delete c;
 
 	if (ctx) {

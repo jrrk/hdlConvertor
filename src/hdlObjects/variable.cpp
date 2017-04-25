@@ -27,6 +27,7 @@ PyObject* Variable::toJson() const {
 #endif
 void Variable::dump(int indent) const {
 	Named::dump(indent);
+	std::cout << ",\n";
 	indent += INDENT_INCR;
 	dumpKey("type", indent);
 	type->dump(indent);
@@ -38,5 +39,5 @@ void Variable::dump(int indent) const {
 	} else {
 		dumpVal("value", indent, "None");
 	}
-	mkIndent(indent - INDENT_INCR) << "}";
+	mkIndent(indent - INDENT_INCR) << ")";
 }

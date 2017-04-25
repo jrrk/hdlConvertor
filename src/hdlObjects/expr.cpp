@@ -133,7 +133,7 @@ PyObject * Expr::toJson() const {
 #endif
 void Expr::dump(int indent) const {
 	Operator * op = dynamic_cast<Operator*>(data);
-	std::cout << "{\n";
+	std::cout << "(\n";
 	if (op) {
 		dumpItemP("binOperator", indent + INDENT_INCR, op) << "\n";
 	} else {
@@ -143,5 +143,5 @@ void Expr::dump(int indent) const {
 		} else
 			throw "vhdlExpr is improperly initialized";
 	}
-	mkIndent(indent) << "}";
+	mkIndent(indent) << ")";
 }
